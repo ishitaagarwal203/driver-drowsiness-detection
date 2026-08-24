@@ -1,0 +1,624 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
+  background: #f3f4f6;
+
+  color: #111827;
+}
+
+button {
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100vh;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* ================================================
+   HEADER
+================================================ */
+
+.topbar {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 24px 40px;
+
+  background: white;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.topbar h1 {
+  margin: 0;
+
+  font-size: 24px;
+}
+
+.topbar p {
+  margin: 6px 0 0;
+
+  color: #6b7280;
+}
+
+.live-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 8px 14px;
+
+  border-radius: 20px;
+
+  background: #f3f4f6;
+
+  color: #6b7280;
+
+  font-size: 13px;
+
+  font-weight: bold;
+}
+
+.live-status.active {
+  background: #dcfce7;
+
+  color: #166534;
+}
+
+.status-dot {
+  font-size: 12px;
+}
+
+
+/* ================================================
+   DASHBOARD
+================================================ */
+
+.dashboard {
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 30px 40px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.3fr)
+    minmax(380px, 0.7fr);
+
+  gap: 25px;
+}
+
+
+/* ================================================
+   PANELS
+================================================ */
+
+.camera-panel,
+.status-panel {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  padding: 22px;
+
+  box-shadow:
+    0 2px 8px
+    rgba(0, 0, 0, 0.04);
+}
+
+.panel-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+}
+
+.panel-header h2 {
+  margin: 0;
+
+  font-size: 18px;
+}
+
+.panel-header span {
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+
+/* ================================================
+   CAMERA
+================================================ */
+
+.webcam-container {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #111827;
+
+  aspect-ratio: 4 / 3;
+}
+
+.webcam-video {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transform: scaleX(-1);
+}
+
+.connection-status {
+  position: absolute;
+
+  top: 12px;
+
+  left: 12px;
+
+  padding: 7px 10px;
+
+  border-radius: 6px;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  color: white;
+
+  font-size: 12px;
+}
+
+
+/* ================================================
+   BUTTONS
+================================================ */
+
+.start-button,
+.stop-button {
+  width: 100%;
+
+  margin-top: 16px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.start-button {
+  background: #16a34a;
+}
+
+.start-button:hover {
+  background: #15803d;
+}
+
+.stop-button {
+  background: #dc2626;
+}
+
+.stop-button:hover {
+  background: #b91c1c;
+}
+
+
+/* ================================================
+   STATE
+================================================ */
+
+.state-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 18px;
+
+  margin-bottom: 20px;
+
+  border-radius: 10px;
+
+  background: #f9fafb;
+
+  border-left: 5px solid #9ca3af;
+}
+
+.state-card.awake {
+  border-left-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.state-card.drowsy {
+  border-left-color: #dc2626;
+  background: #fef2f2;
+}
+
+.state-card.yawning {
+  border-left-color: #ca8a04;
+  background: #fefce8;
+}
+
+.state-card.no_face {
+  border-left-color: #6b7280;
+}
+
+.state-icon {
+  font-size: 30px;
+}
+
+.state-card span {
+  font-size: 11px;
+
+  color: #6b7280;
+
+  font-weight: bold;
+}
+
+.state-card h2 {
+  margin: 4px 0 0;
+
+  font-size: 22px;
+}
+
+
+/* ================================================
+   METRICS
+================================================ */
+
+.metrics-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.metric-card {
+  padding: 15px;
+
+  border-radius: 9px;
+
+  background: #f9fafb;
+
+  border: 1px solid #e5e7eb;
+}
+
+.metric-card span {
+  display: block;
+
+  font-size: 10px;
+
+  font-weight: bold;
+
+  color: #6b7280;
+}
+
+.metric-card strong {
+  display: block;
+
+  margin-top: 7px;
+
+  font-size: 20px;
+}
+
+
+/* ================================================
+   CONFIRMATION
+================================================ */
+
+.confirmation-panel {
+  margin-top: 20px;
+
+  padding: 15px;
+
+  border-radius: 9px;
+
+  background: #f9fafb;
+}
+
+.confirmation-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+.progress-bar {
+  width: 100%;
+
+  height: 8px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #e5e7eb;
+}
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: 10px;
+
+  background: #ef4444;
+
+  transition: width 0.2s ease;
+}
+
+
+/* ================================================
+   ALARM
+================================================ */
+
+.alarm-box {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 20px;
+
+  padding: 16px;
+
+  border-radius: 9px;
+
+  background: #f3f4f6;
+}
+
+.alarm-box > span {
+  font-size: 25px;
+}
+
+.alarm-box strong {
+  font-size: 14px;
+}
+
+.alarm-box p {
+  margin: 4px 0 0;
+
+  color: #6b7280;
+
+  font-size: 12px;
+}
+
+.alarm-box.active {
+  background: #fee2e2;
+
+  border: 1px solid #fecaca;
+
+  color: #991b1b;
+
+  animation: alarmPulse 1s infinite;
+}
+
+.alarm-box.active p {
+  color: #991b1b;
+}
+
+@keyframes alarmPulse {
+
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.01);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+
+}
+
+
+/* ================================================
+   FOOTER
+================================================ */
+
+footer {
+  max-width: 1400px;
+
+  width: 100%;
+
+  margin: auto auto 0;
+
+  padding: 20px 40px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #9ca3af;
+
+  font-size: 12px;
+}
+
+
+/* ================================================
+   RESPONSIVE
+================================================ */
+
+@media (max-width: 900px) {
+
+  .dashboard {
+    grid-template-columns: 1fr;
+
+    padding: 20px;
+  }
+
+  .topbar {
+    padding: 20px;
+
+    gap: 15px;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .topbar {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    padding: 20px;
+
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+}
+
+/* ================================================
+   LIVE CHARTS
+================================================ */
+
+.charts-container {
+
+  grid-column: 1 / -1;
+
+  background: white;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 14px;
+
+  padding: 22px;
+
+  box-shadow:
+    0 2px 8px
+    rgba(0, 0, 0, 0.04);
+
+}
+
+
+.charts-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 20px;
+
+}
+
+
+.charts-header h2 {
+
+  margin: 0;
+
+  font-size: 18px;
+
+}
+
+
+.charts-header span {
+
+  color: #6b7280;
+
+  font-size: 13px;
+
+}
+
+
+.charts-section {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 18px;
+
+}
+
+
+.chart-card {
+
+  padding: 15px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 10px;
+
+  background: #fafafa;
+
+}
+
+
+.chart-card h3 {
+
+  margin: 0 0 10px;
+
+  font-size: 14px;
+
+}
+
+
+@media (max-width: 900px) {
+
+  .charts-section {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
