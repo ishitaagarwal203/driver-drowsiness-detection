@@ -4,9 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.app.api.routes import router
 
 app = FastAPI(
-    title="Driver Drowsiness Detection API",
+    title="DriveAlert API",
     description=(
-        "Real-time driver drowsiness "
+        "DriveAlert real-time driver drowsiness "
         "detection and alarming system"
     ),
     version="1.0.0"

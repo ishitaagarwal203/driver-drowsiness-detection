@@ -1,4 +1,4 @@
-# Driver Drowsiness Detection System
+# DriveAlert - Driver Drowsiness Detection System
 
 A real-time machine learning based driver drowsiness detection and alarming system.
 
