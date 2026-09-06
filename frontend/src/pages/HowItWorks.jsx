@@ -302,53 +302,6 @@ function HowItWorks() {
             </button>
           </div>
         </section>
-
-        {/* PIPELINE */}
-
-        <section className="bg-[#0E1217] border border-white/[0.08] rounded-[16px] p-6 sm:p-8">
-          <p className="text-xs font-semibold text-[#858D98] uppercase tracking-wider">
-            Detection Pipeline
-          </p>
-
-          <h2 className="text-xl font-bold text-[#F3F4F6] mt-1">
-            See how each frame is processed
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-3 mt-6">
-            {steps.map((step, index) => (
-              <div key={step.number} className="relative">
-                <div
-                  className={`h-full min-h-[250px] rounded-xl p-4 border ${
-                    step.number === "05"
-                      ? "border-[#EF3340]/60 bg-[#EF3340]/10"
-                      : "border-white/[0.08] bg-[#13181F]"
-                  }`}
-                >
-                  <div className="text-xl font-bold text-[#EF3340]">
-                    {step.number}
-                  </div>
-
-                  <h3 className="text-xs font-bold text-[#F3F4F6] mt-2">
-                    {step.title}
-                  </h3>
-
-                  {step.visual}
-
-                  <p className="text-[10px] text-[#858D98] leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-3 translate-x-1/2 text-[#EF3340] z-10">
-                    →
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* SEVEN STEPS */}
 
         <section>
@@ -376,7 +329,9 @@ function HowItWorks() {
                   </h3>
                 </div>
 
-                <div className="px-3">{step.visual}</div>
+                <div className="px-3">
+                  {step.visual}
+                </div>
 
                 <div className="px-5 pb-5">
                   <p className="text-xs text-[#858D98]">
@@ -387,6 +342,7 @@ function HowItWorks() {
             ))}
           </div>
         </section>
+
 
         {/* FEATURE EXTRACTION */}
 
@@ -672,6 +628,150 @@ function HowItWorks() {
               </div>
             </div>
           </div>
+        </section>
+
+
+        {/* DETECTION SIGNALS */}
+
+        <section className="bg-[#0E1217] border border-white/[0.08] rounded-[16px] p-6 sm:p-8">
+
+          <p className="text-xs font-semibold text-[#858D98] uppercase tracking-wider">
+            Detection Signals
+          </p>
+
+          <h2 className="text-xl font-bold text-[#F3F4F6] mt-1">
+            Key metrics used by the system
+          </h2>
+
+          <p className="text-sm text-[#858D98] mt-2 max-w-2xl">
+            These signals help the system understand changes in eye, mouth,
+            and facial behavior during monitoring.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+
+            {/* EAR */}
+            <div className="bg-[#13181F] border border-white/[0.08] rounded-xl p-5">
+
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-bold text-[#F3F4F6]">
+                  EAR
+                </span>
+
+                <span className="w-2 h-2 rounded-full bg-[#858D98]" />
+              </div>
+
+              <h3 className="text-sm font-semibold text-[#F3F4F6] mt-5">
+                Eye Aspect Ratio
+              </h3>
+
+              <p className="text-xs text-[#858D98] mt-2">
+                Helps monitor eye closure and blinking patterns.
+              </p>
+
+            </div>
+
+
+            {/* MAR */}
+            <div className="bg-[#13181F] border border-white/[0.08] rounded-xl p-5">
+
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-bold text-[#F3F4F6]">
+                  MAR
+                </span>
+
+                <span className="w-2 h-2 rounded-full bg-[#858D98]" />
+              </div>
+
+              <h3 className="text-sm font-semibold text-[#F3F4F6] mt-5">
+                Mouth Aspect Ratio
+              </h3>
+
+              <p className="text-xs text-[#858D98] mt-2">
+                Helps identify mouth opening and yawning patterns.
+              </p>
+
+            </div>
+
+
+            {/* PERCLOS */}
+            <div className="bg-[#13181F] border border-white/[0.08] rounded-xl p-5">
+
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-bold text-[#F3F4F6]">
+                  PERCLOS
+                </span>
+
+                <span className="w-2 h-2 rounded-full bg-[#858D98]" />
+              </div>
+
+              <h3 className="text-sm font-semibold text-[#F3F4F6] mt-5">
+                Eyelid Closure
+              </h3>
+
+              <p className="text-xs text-[#858D98] mt-2">
+                Measures prolonged eye closure over a period of time.
+              </p>
+
+            </div>
+
+
+            {/* ML */}
+            <div className="bg-[#13181F] border border-white/[0.08] rounded-xl p-5">
+
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-bold text-[#F3F4F6]">
+                  ML
+                </span>
+
+                <span className="w-2 h-2 rounded-full bg-[#858D98]" />
+              </div>
+
+              <h3 className="text-sm font-semibold text-[#F3F4F6] mt-5">
+                Machine Learning
+              </h3>
+
+              <p className="text-xs text-[#858D98] mt-2">
+                Uses extracted features to estimate driver state.
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* READY TO START MONITORING */}
+
+        <section className="bg-[#0E1217] border border-white/[0.08] rounded-[16px] p-6 sm:p-7">
+
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+
+            <div>
+              <h2 className="text-sm font-bold text-[#F3F4F6]">
+                Ready to start monitoring?
+              </h2>
+
+              <p className="text-xs text-[#858D98] mt-2">
+                Return to the dashboard and start a driver monitoring session.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              className="shrink-0 px-5 py-3 rounded-lg
+                 bg-[#EF3340]
+                 text-white
+                 text-sm font-semibold
+                 hover:bg-[#D92D3B]
+                 transition-colors"
+            >
+              Open monitoring
+            </button>
+
+          </div>
+
         </section>
 
         {/* FOOTER */}
